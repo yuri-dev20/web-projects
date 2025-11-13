@@ -105,3 +105,9 @@ body {
 #btns .delete:hover {
     background: rgb(247, 31, 31);
 }
+
+#todo-items .completed {
+    text-decoration: line-through;
+    background: rgb(71, 245, 71);
+    padding: 20px;
+}

@@ -28,4 +28,22 @@ todoForm.addEventListener("submit", (e) => {
 
     todo.appendChild(btnsDiv);
     todoItems.appendChild(todo);
+
+    todoInput.value = "";
+});
+
+todoItems.addEventListener("click", (e) => {
+    // Check if the element the user clicked have this class
+    if (e.target.classList.contains("complete")) {
+        // Return the closest parent given a condition in this case is the tag
+        const todo = e.target.closest("li");
+        const todoBtns = todo.lastElementChild;
+        todo.removeChild(todoBtns);
+        todo.classList.add("completed");
+    }
+
+    if (e.target.classList.contains("delete")) {
+        const todo = e.target.closest("li");
+        todo.remove();
+    }
 });

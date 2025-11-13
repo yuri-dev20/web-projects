@@ -7,4 +7,99 @@ body {
     background-color: rgb(20, 20, 20);
     color: white;
     font-family: Arial, Helvetica, sans-serif;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+
+#title {
+    font-size: 38px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+#todo-input {
+    padding: 10px;
+    background: rgba(14, 14, 14);
+    border: 3px solid rgba(0, 0, 0, 0.167);
+    color: #fff;
+    border-radius: 10px;
+    font-size: 16px;
+    outline: none;
+}
+
+#submitBtn {
+    padding: 12px;
+    border: none;
+    border-radius: 20px;
+    font-size: 16px;
+    letter-spacing: 1px;
+    margin-left: 5px;
+    background: rgba(247, 43, 43, 0.337);
+    cursor: pointer;
+    color: #fff;
+    font-weight: bold;
+}
+
+#submitBtn:hover {
+    background: rgba(247, 43, 43, 0.608);
+}
+
+#todo-items {
+    width: 350px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 15px;
+    list-style: none;
+}
+
+#todo-items li {
+    border: 3px solid rgba(0, 0, 0);
+    background: #fff;
+    color: rgb(25, 25, 25);
+    font-weight: 500;
+    padding: 10px;
+    font-size: 18px;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    word-break: break-all;
+}
+
+#btns {
+    flex-shrink: 0;
+}
+
+#btns button {
+    padding: 13px;
+    cursor: pointer;
+}
+
+#btns .complete {
+    background: rgba(76, 255, 76, 0.707);
+    border-radius: 100%;
+    font-size: 15px;
+    border: none;
+}
+
+#btns.complete:hover {
+    background: rgb(117, 248, 117);
+}
+
+#btns .delete {
+    background: rgb(255, 61, 61);
+    color: #fff;
+    border-radius: 100%;
+    font-size: 15px;
+    border: none;
+}
+
+#btns .delete:hover {
+    background: rgb(247, 31, 31);
 }

@@ -10,7 +10,9 @@ todoForm.addEventListener("submit", (e) => {
     }
 
     const todo = document.createElement("li");
-    todo.textContent = todoInput.value;
+    const todoText = document.createElement("span");
+    todoText.textContent = todoInput.value;
+    todo.appendChild(todoText)
 
     const btnsDiv = document.createElement("div");
     btnsDiv.id = "btns";

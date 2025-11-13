@@ -88,8 +88,8 @@ body {
     border: none;
 }
 
-#btns.complete:hover {
-    background: rgb(117, 248, 117);
+#btns .complete:hover {
+    background: rgb(71, 245, 71);
 }
 
 #btns .delete {

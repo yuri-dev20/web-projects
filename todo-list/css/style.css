@@ -73,6 +73,8 @@ body {
 }
 
 #btns {
+    display: flex;
+    gap: 10px;
     flex-shrink: 0;
 }
 

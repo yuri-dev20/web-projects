@@ -17,6 +17,9 @@ const choosenPhrases = [];
 let startTime;
 let intervalId;
 let elapsedTimeMs = 0;
+let currentElapsed;
+let level = 1; // Need to be here since the repetion for the check "Enter" in the listener would keep reseting it to "1"
+               // and its scope
 
 let startTimer = () => {
     // Stores the time ms where it begins
@@ -29,7 +32,7 @@ let startTimer = () => {
         const now = Date.now();
         // By subtracting the start timestamp from the current timestamp, we get the real time elapsed since the timer started.
         // elapsedTimeMs stores the previously accumulated time whenever the timer stops, so when the user returns, the timer resumes instead of resetting.
-        let currentElapsed = elapsedTimeMs + (now - startTime);
+        currentElapsed = elapsedTimeMs + (now - startTime);
         timeDisplay.textContent = (currentElapsed / 1000).toFixed(2);
     }, 10);
 };
@@ -65,12 +68,17 @@ startBtn.addEventListener("click", (e) => {
 
 let pickAPhrase = () => phrases[Math.floor(Math.random() * phrases.length)];
 let displayText = () => {
+    if (choosenPhrases.length === phrases.length) {
+        textDisplay.textContent = "Congratulations, no more phrases to write! Check your score."
+        return;
+    }
+
     let phrase =  pickAPhrase();
 
     while (choosenPhrases.includes(phrase)) {
         phrase =  pickAPhrase();
     }
-
+    
     choosenPhrases.push(phrase);
     textDisplay.textContent = phrase;
 };
@@ -104,13 +112,27 @@ playerInput.addEventListener("keydown", (e) => {
 
     // Checks is is player input lenght is valid forcing it to complete the phrase
     if (input === target && e.key === "Enter") {
+        saveTimers(currentElapsed, level)
+        level++;
+        // Clear timer
         clearInterval(intervalId);
         elapsedTimeMs = 0;
         timeDisplay.textContent = "0.00";
+
+        
         playerInput.value = "";
         playerInput.style.color = "#fff";
         displayText();
         startTimer();
-        console.log("TODO: put in score timer");
+        
     }
 });
+
+function saveTimers(timer, level) {
+    let p = document.createElement("p");
+    p.classList.add("time-score");
+    
+    p.textContent = `Level ${level}: ${timer} seconds`;
+
+    timeScores.appendChild(p);
+}

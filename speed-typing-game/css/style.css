@@ -23,7 +23,6 @@ body {
 }
 
 #time-scores {
-    display: none;
     padding: 20px;
     background-color: var(--clr-light-black);
     border-radius: 10px;
@@ -68,7 +67,6 @@ body {
 }
 
 #text-display {
-    display: none;
     background-color: var(--clr-light-black);
     padding: 20px;
     font-weight: bold;
@@ -77,13 +75,11 @@ body {
 }
 
 #time-display {
-    display: none;
     letter-spacing: 1em;
     font-weight: 600;
 }
 
 #player-input {
-    display: none;
     border: none;
     background-color: var(--clr-light-black);
     min-width: 600px;
@@ -96,4 +92,8 @@ body {
     color: var(--clr-white);
     text-align: center;
     box-shadow: 0 4px 5px rgba(0, 0, 0, 0.913);
+}
+
+.invisible {
+    display: none;
 }

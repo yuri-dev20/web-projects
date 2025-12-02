@@ -1,3 +1,9 @@
+:root {
+    --clr-white: #f6f2f2;
+    --clr-light-black: rgba(0, 0, 0, 0.645);
+    --clr-light-green: #a1ec60;
+}
+
 body {
     margin: 0;
     padding: 0;
@@ -7,7 +13,7 @@ body {
     justify-content: center;
     align-items: center;
     background-color: rgba(2, 2, 36, 0.883);
-    color: #f6f2f2;
+    color: var(--clr-white);
 }
 
 #flex-container {
@@ -17,18 +23,20 @@ body {
 }
 
 #time-scores {
+    display: none;
     padding: 20px;
-    background-color: rgba(0, 0, 0, 0.645);
+    background-color: var(--clr-light-black);
     border-radius: 10px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    border-right: 6px solid #a1ec60;
+    border-right: 6px solid var(--clr-light-green);
+}
+
+#time-score-title {
+    padding: 5px;
 }
 
 .time-score {
     font-weight: bold;
+    padding: 10px;
 }
 
 #game-container {
@@ -36,4 +44,56 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 60px;
+    align-self: flex-start;
+}
+
+#game-title {
+    font-size: 35px;
+    letter-spacing: .2em;
+}
+
+#game-start-btn {
+    background-color: var(--clr-light-black);
+    padding: 20px;
+    cursor: pointer;
+    border: none;
+    border-radius: 10px;
+    color: var(--clr-white);
+    transition: all ease .3s;
+}
+
+#game-start-btn:hover {
+    background-color: rgba(0, 0, 0, 0.744);
+}
+
+#text-display {
+    display: none;
+    background-color: var(--clr-light-black);
+    padding: 20px;
+    font-weight: bold;
+    letter-spacing: .1em;
+    box-shadow: 0 4px 5px rgba(0, 0, 0, 0.913);
+}
+
+#time-display {
+    display: none;
+    letter-spacing: 1em;
+    font-weight: 600;
+}
+
+#player-input {
+    display: none;
+    border: none;
+    background-color: var(--clr-light-black);
+    min-width: 600px;
+    padding: 10px 20px;
+    font-size: 18px;
+    letter-spacing: .2em;
+    font-weight: 600;
+    outline: none;
+    caret-color: var(--clr-white);
+    color: var(--clr-white);
+    text-align: center;
+    box-shadow: 0 4px 5px rgba(0, 0, 0, 0.913);
 }

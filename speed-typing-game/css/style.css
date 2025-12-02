@@ -82,9 +82,8 @@ body {
 #player-input {
     border: none;
     background-color: var(--clr-light-black);
-    min-width: 600px;
+    min-width: 800px;
     padding: 10px 20px;
-    font-size: 18px;
     letter-spacing: .2em;
     font-weight: 600;
     outline: none;
@@ -96,4 +95,9 @@ body {
 
 .invisible {
     display: none;
+}
+
+h1 {
+    color: rgb(226, 80, 80);
+    color: rgb(68, 255, 68);
 }

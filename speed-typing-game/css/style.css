@@ -12,8 +12,23 @@ body {
 
 #flex-container {
     display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+#time-scores {
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.645);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    border-right: 6px solid #a1ec60;
+}
+
+.time-score {
+    font-weight: bold;
 }
 
 #game-container {

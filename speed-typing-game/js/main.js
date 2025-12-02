@@ -12,7 +12,23 @@ const phrases = [
     "He wrote beautiful songs inspired by memories from his adventurous childhood",
 ]
 
-const choosenPhrases = [];
+const chosenPhrases = [];
+
+// Block the copy of the display text
+textDisplay.addEventListener("copy", e => e.preventDefault());
+textDisplay.addEventListener("cut", e => e.preventDefault());
+textDisplay.addEventListener("paste", e => e.preventDefault());
+textDisplay.addEventListener("contextmenu", e => e.preventDefault());
+textDisplay.addEventListener("keydown", (e) => {
+    if (e.ctrlKey) {
+        const key = e.key.toLowerCase();
+        if (key === "c" || key === "v") {
+            e.preventDefault();
+        }
+    }
+});
+
+let gameOver = false;
 
 let startTime;
 let intervalId;
@@ -68,23 +84,29 @@ startBtn.addEventListener("click", (e) => {
 
 let pickAPhrase = () => phrases[Math.floor(Math.random() * phrases.length)];
 let displayText = () => {
-    if (choosenPhrases.length === phrases.length) {
+    if (chosenPhrases.length === phrases.length) {
         textDisplay.textContent = "Congratulations, no more phrases to write! Check your score."
+        playerInput.disabled = true;
+        gameOver = true;
+        stopTimer();
         return;
     }
 
     let phrase =  pickAPhrase();
 
-    while (choosenPhrases.includes(phrase)) {
+    while (chosenPhrases.includes(phrase)) {
         phrase =  pickAPhrase();
     }
     
-    choosenPhrases.push(phrase);
+    chosenPhrases.push(phrase);
     textDisplay.textContent = phrase;
 };
 
 playerInput.addEventListener("focus", (e) => {
-    startTimer();
+    if (gameOver) return;
+    if (!intervalId) {
+        startTimer();
+    }
 });
 
 playerInput.addEventListener("input", (e) => {
@@ -107,6 +129,8 @@ playerInput.addEventListener("input", (e) => {
 });
 
 playerInput.addEventListener("keydown", (e) => {
+    if (gameOver) return;
+
     const input = playerInput.value;
     const target = textDisplay.textContent;
 
@@ -123,7 +147,10 @@ playerInput.addEventListener("keydown", (e) => {
         playerInput.value = "";
         playerInput.style.color = "#fff";
         displayText();
-        startTimer();
+        
+        if (!gameOver) {
+            startTimer();
+        }
         
     }
 });
@@ -132,7 +159,7 @@ function saveTimers(timer, level) {
     let p = document.createElement("p");
     p.classList.add("time-score");
     
-    p.textContent = `Level ${level}: ${timer} seconds`;
+    p.textContent = `Level ${level}: ${(timer / 1000).toFixed(2)} seconds`;
 
     timeScores.appendChild(p);
 }

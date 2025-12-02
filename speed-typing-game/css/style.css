@@ -68,6 +68,16 @@ body {
 }
 
 #text-display {
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+
+    /* Em alguns navegadores, isso impede seleção via mouse */
+    -webkit-touch-callout: none;
+}
+
+#text-display {
     background-color: var(--clr-light-black);
     padding: 20px;
     font-weight: bold;

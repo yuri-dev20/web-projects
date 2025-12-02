@@ -9,3 +9,4 @@ A web dev lab with projects ranging from small experiments to more complex apps 
 | Project | Description |
 |----------|--------------|
 |[todo-list](./todo-list) | Basic to-do list|
+|[speed-typing-game](./speed-typing-game) | Speed Typing Game|

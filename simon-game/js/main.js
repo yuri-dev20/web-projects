@@ -7,6 +7,7 @@ const btnGreen = document.querySelector(".green");
 const btnBlue = document.querySelector(".blue");
 const btnYellow = document.querySelector(".yellow");
 
+let roundIndex = 0;
 let gameOver = false;
 
 const colors = ["red", "green", "blue", "yellow"];
@@ -59,7 +60,6 @@ function playTurn(i = 0) {
 // Adds a new color since the idea is the computer to be the one in control
 function addColor() {
     if (computerChoices.length === 3) {
-        console.log("YOU MADE IT! U WON!");
         gameOver = true;
         return;
     } else {
@@ -79,7 +79,9 @@ function userClick(e) {
     const clicked = e.target.id;
 
     if (clicked !== computerChoices[userChoices]) {
-        console.log("Wrong color - GAME OVER!");
+        gameOverMsg.classList.remove("invisible");
+        gameOverMsg.classList.add("game-lost");
+        gameOverMsg.textContent = "Wrong color - GAME OVER!";
         gameOver = true;
         return;
     }
@@ -87,24 +89,40 @@ function userClick(e) {
     userChoices++;
 
     if (userChoices === computerChoices.length) {
-        console.log("YOU MADE IT - NEXT ROUND!");
+        if (computerChoices.length === 3) {
+            gameOverMsg.classList.remove("invisible");
+            gameOverMsg.classList.add("game-win");
+            gameOverMsg.textContent = "YOU MADE IT! U WON!";
+            gameOver = true;
+            return
+        }
         userTurn = false;
 
+        if (gameOver) {
+            return;
+        };
+        
         setTimeout(startRound, 1000);
     }
 }
 
 function startRound() {
     if (gameOver) return;
+    roundIndex++;
+
+    gameRound.textContent = `ROUND ${roundIndex}`
+    gameRound.classList.remove("invisible");
     addColor();
     playTurn();
 }
 
 gameColors.forEach(clrBtn => {
     clrBtn.addEventListener("click", userClick);
+
 });
 
 btnStart.addEventListener("click", () => {
     btnStart.classList.add("invisible");
     setTimeout(startRound, 1000);
+
 });

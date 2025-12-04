@@ -59,7 +59,7 @@ function playTurn(i = 0) {
 
 // Adds a new color since the idea is the computer to be the one in control
 function addColor() {
-    if (computerChoices.length === 3) {
+    if (computerChoices.length === 6) {
         gameOver = true;
         return;
     } else {
@@ -89,7 +89,7 @@ function userClick(e) {
     userChoices++;
 
     if (userChoices === computerChoices.length) {
-        if (computerChoices.length === 3) {
+        if (computerChoices.length === 6) {
             gameOverMsg.classList.remove("invisible");
             gameOverMsg.classList.add("game-win");
             gameOverMsg.textContent = "YOU MADE IT! U WON!";

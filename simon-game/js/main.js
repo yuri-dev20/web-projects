@@ -1,10 +1,13 @@
 const gameColors = document.querySelectorAll(".colors");
 const gameOverMsg = document.querySelector("#game-over-msg");
+const btnStart = document.querySelector("#start-btn");
 const gameRound = document.querySelector("#game-round");
 const btnRed = document.querySelector(".red");
 const btnGreen = document.querySelector(".green");
 const btnBlue = document.querySelector(".blue");
 const btnYellow = document.querySelector(".yellow");
+
+let gameOver = false;
 
 const colors = ["red", "green", "blue", "yellow"];
 
@@ -33,6 +36,8 @@ function getButtonByColor(color) {
 }
 
 function playTurn(i = 0) {
+    if (gameOver) return;   
+
     if (i >= computerChoices.length) {
         userTurn = true;
         userChoices = 0;
@@ -46,17 +51,26 @@ function playTurn(i = 0) {
     flashColor(btn, color + "-choice");
 
     setTimeout(() => {
+        if (gameOver) return;
         playTurn(i + 1); // call the next turn/color
     }, 600);
 }
 
 // Adds a new color since the idea is the computer to be the one in control
 function addColor() {
-    computerChoices.push(colors[Math.floor(Math.random() * 4)]);
+    if (computerChoices.length === 3) {
+        console.log("YOU MADE IT! U WON!");
+        gameOver = true;
+        return;
+    } else {
+        computerChoices.push(colors[Math.floor(Math.random() * 4)]);
+    }
 }
 
 // User turn and when it interacts
 function userClick(e) {
+    if (gameOver) return;
+
     // Ignore user clicks while the game shows the colors
     if (!userTurn) {
         return;
@@ -66,7 +80,7 @@ function userClick(e) {
 
     if (clicked !== computerChoices[userChoices]) {
         console.log("Wrong color - GAME OVER!");
-        playTurn = false;
+        gameOver = true;
         return;
     }
 
@@ -81,6 +95,7 @@ function userClick(e) {
 }
 
 function startRound() {
+    if (gameOver) return;
     addColor();
     playTurn();
 }
@@ -89,4 +104,7 @@ gameColors.forEach(clrBtn => {
     clrBtn.addEventListener("click", userClick);
 });
 
-startRound();
+btnStart.addEventListener("click", () => {
+    btnStart.classList.add("invisible");
+    setTimeout(startRound, 1000);
+});

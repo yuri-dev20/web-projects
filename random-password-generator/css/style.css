@@ -16,6 +16,8 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
+    gap: 20px;
 }
 
 #flex-container {
@@ -58,6 +60,16 @@ body {
     line-height: 1.5rem;
     width: 400px;
     word-wrap: break-word;
+}
+
+.generate-pass {
+    padding: .5rem;
+    border: none;
+    font-size: 1rem;
+    background-color: rgb(249, 153, 51);
+    color: #fff;
+    border-radius: 10px;
+    cursor: pointer;
 }
 
 #password {

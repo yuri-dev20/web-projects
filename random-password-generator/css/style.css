@@ -1,0 +1,20 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    height: 100%;
+    background: #5a5adb;
+    background: linear-gradient(180deg, rgb(116, 116, 240) 0%, rgb(171, 75, 75) 100%);
+}
+
+body {
+    font-family: 'Times New Roman', Times, serif;
+    color: #fff;
+    
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

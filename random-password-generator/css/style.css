@@ -5,7 +5,6 @@
 
 html {
     height: 100%;
-    background: #5a5adb;
     background: linear-gradient(180deg, rgb(116, 116, 240) 0%, rgb(171, 75, 75) 100%);
 }
 
@@ -17,4 +16,60 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+#flex-container {
+    min-width: 450px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    background: linear-gradient(150deg,rgb(12, 12, 12) 0%, rgba(0, 0, 0, 0.615) 100%);
+    padding: 25px;
+    border-radius: 10px;
+}
+
+#btns {
+    display: flex;
+    gap: 15px;
+}
+
+.options {
+    padding: .5rem;
+    border: none;
+    font-size: 1rem;
+    background-color: rgb(71, 108, 218);
+    color: #fff;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.options:hover {
+    background-color: rgb(61, 106, 242);
+}
+
+.btn-explanation {
+    color: #fff;
+    background: rgba(0, 0, 0, 0.572);
+    border-radius: 10px;
+    padding: 10px;
+    display: flex;
+}
+
+.btn-explanation span {
+    margin: 0 10px 0 auto;
+    cursor: pointer;
+    color: rgb(240, 83, 83);
+    font-weight: bold;
+}
+
+#password {
+    border: none;
+    padding: 12px;
+    background-color: rgba(0, 0, 0, 0.655);
+    color: #e4e4e4;
+    border-radius: 10px;
+}
+
+.disable {
+    display: none;
 }

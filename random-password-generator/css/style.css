@@ -51,20 +51,18 @@ body {
     color: #fff;
     background: rgba(0, 0, 0, 0.572);
     border-radius: 10px;
-    padding: 10px;
-    display: flex;
+    padding: 10px; 
 }
 
-.btn-explanation span {
-    margin: 0 10px 0 auto;
-    cursor: pointer;
-    color: rgb(240, 83, 83);
-    font-weight: bold;
+.description {
+    line-height: 1.5rem;
+    width: 400px;
+    word-wrap: break-word;
 }
 
 #password {
     border: none;
-    padding: 12px;
+    padding: 18px;
     background-color: rgba(0, 0, 0, 0.655);
     color: #e4e4e4;
     border-radius: 10px;

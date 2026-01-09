@@ -46,12 +46,11 @@ h2 {
 
 .grid-container {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 2fr);
     grid-template-rows: repeat(4, auto);
     border-radius: 10px;
-    padding: 10px;
+    padding: 10px 10px 10px 0;
     gap: 10px;
-    background-color: #00000025;
     border-radius: 10px;
     height: auto;
     overflow: auto;
@@ -73,6 +72,8 @@ h2 {
 }
 
 .delete-btn {
+    min-width: 30px;
+    max-height: 50px;
     border: none;
     padding: 8px;
     border-radius: 100%;
@@ -141,4 +142,5 @@ h2 {
     height: 100%;
     width: 98%;
     padding: 0;
+    background: transparent;
 }

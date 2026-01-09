@@ -2,7 +2,8 @@ const gridContainer = document.querySelector(".grid-container");
 const createNoteBtn = document.querySelector(".create-note-btn");
 const createNoteWindow = document.querySelector("#add-note-window");
 const addNoteBtn = document.querySelector("#add-note-btn");
-const notesContainer = document.querySelector(".notes");
+
+let deleteBtn;
 
 createNoteWindow.addEventListener("click", (e) => {
     if (e.target === createNoteWindow) {
@@ -20,9 +21,18 @@ addNoteBtn.addEventListener("click", (e) => {
     const description = document.querySelector("#note-description").value;
 
     gridContainer.classList.remove("no-notes");
-    gridContainer.appendChild(createNote(title, description));
-    createNoteWindow.close();
+    const note = createNote(title, description);
+    gridContainer.appendChild(note);
+    deleteBtn = note.querySelectorAll(".delete-btn");
+
+
+    deleteBtn.forEach(btn => {
+        btn.addEventListener("click", (e) => {
+            btn.parentElement.parentElement.remove();
+        });
+    });
 });
+
 
 function createNote(title, description) {
     const note = document.createElement("div");
@@ -47,6 +57,7 @@ function createNote(title, description) {
     note.appendChild(noteHeader);
     note.appendChild(noteDescription);
     note.appendChild(noteDate);
+    createNoteWindow.close();
 
     return note;
 }

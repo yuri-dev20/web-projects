@@ -3,13 +3,14 @@
     padding: 0;
 }
 
-html {
-    height: 100%;
+body {
+    height: 100vh;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: center;    
+    flex-direction: column;
     background: #eebeae;
-    background: linear-gradient(180deg, rgba(238, 190, 174, 1) 0%, rgba(148, 154, 233, 1) 100%);
+    background: linear-gradient(to right, rgba(238, 190, 174, 1) 0%, rgba(148, 154, 233, 1) 100%);
 }
 
 h2 {
@@ -19,7 +20,7 @@ h2 {
     margin-bottom: 10px;
 }
 
-#create-note-btn {
+.create-note-btn {
     margin-bottom: 10px;
     padding: .7rem;
     border: none;
@@ -37,15 +38,17 @@ h2 {
 
 #main-container {
     width: 800px;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
 }
 
-#grid-container {
+.grid-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(4, 1fr);
+    grid-template-rows: repeat(4, auto);
     background: #00000025;
     border-radius: 10px;
-    gap: 10px;
     padding: 10px;
 }
 
@@ -77,6 +80,59 @@ h2 {
     line-height: 1.3;
 }
 
-.disable {
-    display: none;
+#add-note-window {
+    margin: auto;
+    background-color: rgba(0, 0, 0, 0.724);
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+}
+
+#add-note-window::backdrop {
+    background-color: rgba(0, 0, 0, 0.479);
+}
+
+#add-note-window h4 {
+    padding: 10px 30px;
+}
+
+#add-note-window form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 30px;
+}
+
+#add-note-window input {
+    padding: 10px;
+    background: rgb(22, 22, 22);
+    color: #fff
+}
+
+#add-note-window textarea {
+    padding: 10px;
+    color: #fff;
+    background: rgb(22, 22, 22);
+    width: 200px;
+    height: 100px;
+}
+
+#add-note-window input, #add-note-window textarea {
+    outline: none;
+}
+
+#add-note-window #add-note-btn {
+    background: #e87e5a;
+    border-radius: 10px;
+    border: none;
+    color: #fff;
+    font-weight: bold;
+    padding: 10px;
+    width: 100px;
+}
+
+
+.no-notes {
+    height: 200px;
+    width: 100%;
 }

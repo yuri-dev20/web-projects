@@ -9,52 +9,38 @@
 </head>
 <body>
 
-    <h2>Notes</h2>
-    <button id="create-note-btn">Create Note</button>
-
+    
     <div id="main-container">
-        <div id="grid-container">
-            <div class="notes">
+        <div id="app-title">
+            <h2>Notes</h2>
+            <button class="create-note-btn">Create Note</button>
+        </div>
+        <div class="grid-container no-notes">
+            <!-- example -->
+            <!-- <div class="notes">
                 <div class="note-title">
                     <h4>Note Title</h4>
                     <button class="delete-btn">X</button>
                 </div>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam, distinctio!</p>
                 <span class="note-date">10/01/2000</span>
-            </div>
-            <div class="notes">
-                <div class="note-title">
-                    <h4>Note Title</h4>
-                    <button class="delete-btn">X</button>
-                </div>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam, distinctio!</p>
-                <span class="note-date">10/01/2000</span>
-            </div>
-            <div class="notes">
-                <div class="note-title">
-                    <h4>Note Title</h4>
-                    <button class="delete-btn">X</button>
-                </div>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam, distinctio!</p>
-                <span class="note-date">10/01/2000</span>
-            </div>
-            <div class="notes">
-                <div class="note-title">
-                    <h4>Note Title</h4>
-                    <button class="delete-btn">X</button>
-                </div>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam, distinctio!</p>
-                <span class="note-date">10/01/2000</span>
-            </div>
-            <div class="notes">
-                <div class="note-title">
-                    <h4>Note Title</h4>
-                    <button class="delete-btn">X</button>
-                </div>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam, distinctio!</p>
-                <span class="note-date">10/01/2000</span>
-            </div>
-        </div>    
+            </div> -->
+        </div>
+    </div>    
+    
+    <dialog id="add-note-window">
+        <h4>Create a note</h4>
+        <form>
+            <label for="note-title">Note Title</label>
+            <input type="text" id="note-title">
+
+            <label for="note-description">Write your objetives</label>
+            <textarea id="note-description" placeholder="..."></textarea>
+
+            <button id="add-note-btn">Add note!</button>
+        </form>
+    </dialog>
+
     
     <script src="js/main.js"></script>
 </body>

@@ -81,6 +81,11 @@ h2 {
     cursor: pointer;
 }
 
+.note p {
+    overflow-wrap: break-word;
+    word-break: break-all; 
+}
+
 #add-note-window {
     margin: auto;
     background-color: rgba(0, 0, 0, 0.724);

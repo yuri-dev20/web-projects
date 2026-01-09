@@ -12,3 +12,4 @@ A web dev lab with projects ranging from small experiments to more complex apps 
 |[speed-typing-game](./speed-typing-game) | Speed Typing Game|
 |[simon-game](./simon-game) | Simulation of Simon memory Game|
 |[random-password-generator](./random-password-generator/) | Random password generator with different encode types|
+|[notes-app](./notes_app/) | A simple note app 
